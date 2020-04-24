@@ -1,0 +1,171 @@
+<html>
+
+<head>
+    <style>
+        .suit {
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .button1 {
+            position: absolute;
+            top: 78px;
+            left: 100px;
+            z-index: 2;
+        }
+
+        .button2 {
+            position: absolute;
+            top: 75px;
+            left: 390px;
+            z-index: 2;
+        }
+
+        .button3 {
+            position: absolute;
+            top: 185px;
+            left: 250px;
+            z-index: 2;
+        }
+
+        .button4 {
+            position: absolute;
+            top: 309px;
+            left: 250px;
+            z-index: 2;
+        }
+
+        .button5 {
+            position: absolute;
+            top: 425px;
+            left: 250px;
+            z-index: 2;
+        }
+
+        .button6 {
+            position: absolute;
+            top: 210px;
+            left: 30px;
+            z-index: 2;
+        }
+
+        .button7 {
+            position: absolute;
+            top: 210px;
+            left: 460px;
+            z-index: 2;
+        }
+
+        .button8 {
+            position: absolute;
+            top: 185px;
+            left: 775px;
+            z-index: 2;
+        }
+
+        .button9 {
+            position: absolute;
+            top: 109px;
+            left: 589px;
+            z-index: 2;
+        }
+
+        .button10 {
+            position: absolute;
+            top: 100px;
+            left: 950px;
+            z-index: 2;
+        }
+
+        .button11 {
+            position: absolute;
+            top: 305px;
+            left: 775px;
+            z-index: 2;
+        }
+
+        .button12 {
+            position: absolute;
+            top: 29px;
+            left: 775px;
+            z-index: 2;
+        }
+
+        .button13 {
+            position: absolute;
+            top: 439px;
+            left: 765px;
+            z-index: 2;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+        var socket = io.connect(window.location.origin);
+        var status;
+        socket.on('data', function (data) {
+            console.log(data);
+        });
+        socket.on('error', function () {
+            console.error(arguments)
+        });
+        function send(msg) {
+            socket.emit('data', {
+                val: msg
+            });
+        }
+        send('ping')
+
+        $(document).ready(function () {
+            $(".button1").click(function () {
+                $('#status').text("Led1");
+                send('ping')
+            });
+            $(".button2").click(function () {
+                $('#status').text("Led2");
+                send('ping')
+            });
+            $(".button3").click(function () {
+                $('#status').text("Led3");
+                send('ping')
+            });
+            $(".button4").click(function () {
+                $('#status').text("Led4");
+                send('ping')
+            });
+            $(".button5").click(function () {
+                $('#status').text("Led5");
+                send('ping')
+            });
+            $(".button6").click(function () {
+                $('#status').text("Led6");
+                send('ping')
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div style="position: relative; left: 0; top: 0;">
+        <img src="button.png" height="60" class="button1" />
+        <img src="button.png" height="60" class="button2" />
+        <img src="button.png" height="60" class="button3" />
+        <img src="button.png" height="60" class="button4" />
+        <img src="button.png" height="60" class="button5" />
+        <img src="button.png" height="60" class="button6" />
+        <img src="button.png" height="60" class="button7" />
+        <img src="button.png" height="60" class="button8" />
+        <img src="button.png" height="60" class="button9" />
+        <img src="button.png" height="60" class="button10" />
+        <img src="button.png" height="60" class="button11" />
+        <img src="button.png" height="60" class="button12" />
+        <img src="button.png" height="60" class="button13" />
+        <img src="https://mkim1001.github.io/haptic_suit/Bodysuite.png" height="600" class="suit" />
+    </div>
+    <h1 id="status">Status</h1>
+</body>
+
+</html>
